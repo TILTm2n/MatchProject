@@ -2,18 +2,24 @@
 #define WORKER_H
 
 #include <QString>
+#include <iostream>
+#include <QObject>
 
-class Worker
+class Worker: public QObject
 {
+    Q_OBJECT
 public:
     Worker();
-    Worker(QString worid, QString firstname, QString secondname):WorId(worid), FirstName(firstname), SecondName(secondname)
+    Worker(const int& worid, const QString& firstname, const QString& secondname)
+        :WorId(worid)
+        , FirstName(firstname)
+        , SecondName(secondname)
     {
 
     }
 
-    const QString &getWorId() const;
-    void setWorId(const QString &newWorId);
+    int getWorId() const;
+    void setWorId(int newWorId);
 
     const QString &getFirstName() const;
     void setFirstName(const QString &newFirstName);
@@ -22,7 +28,7 @@ public:
     void setSecondName(const QString &newSecondName);
 
 private:
-    QString WorId;
+    int WorId;
     QString FirstName;
     QString SecondName;
 
