@@ -15,14 +15,10 @@ public:
     {
 
         for(const QString& str: propNames){
-
             for(int i = object->metaObject()->propertyOffset(); i < object->metaObject()->propertyCount(); ++i)
             {
-
-                if (object.metaObject().property(i).name() == str && object.metaObject().property(i).read(object).toString().startsWith(input)){
-
-
-
+                if (object.metaObject().property(i).name() == str && object.metaObject().property(i).read(object).toString().startsWith(input, 0)){
+                    return true;
                 }
             }
         }
