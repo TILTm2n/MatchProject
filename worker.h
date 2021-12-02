@@ -7,6 +7,10 @@ class Worker
 {
 public:
     Worker();
+    Worker(QString worid, QString firstname, QString secondname):WorId(worid), FirstName(firstname), SecondName(secondname)
+    {
+
+    }
 
     const QString &getWorId() const;
     void setWorId(const QString &newWorId);
