@@ -21,11 +21,10 @@ public:
 
         for(const QString& str: propNames)
         {
-            const int index = object->metaObject()->indexOfProperty(str.toStdString().c_str());
-            const QVariant& value = object->metaObject()->property(index).read(object);
-            const bool result = value.toString().startsWith(input,Qt::CaseInsensitive);
+            const auto index = object->metaObject()->indexOfProperty(str.toStdString().c_str());
+            const auto& value = object->metaObject()->property(index).read(object);
 
-            if(result)
+            if(value.toString().startsWith(input,Qt::CaseInsensitive))
                 return true;
         }
         return false;
