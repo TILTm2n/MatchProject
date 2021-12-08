@@ -6,7 +6,7 @@
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
+    //QCoreApplication a(argc, argv);
 
     Worker *wkr = new Worker("2", "Александр", "Круглов");
 
@@ -14,10 +14,12 @@ int main(int argc, char *argv[])
 
     QList<QString>  properties{"WorId", "Firstname", "SecondName"};
 
-    std::cout << mcc->Match(wkr, properties, "Алек");
+    std::cout << mcc->Match(wkr, properties, "Алек") << std::endl;
 
     delete wkr;
     delete mcc;
 
-    return a.exec();
+    //return a.exec();
+    return 0;
+    //проверка работоспособности
 }
