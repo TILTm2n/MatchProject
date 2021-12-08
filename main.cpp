@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    Worker *wkr = new Worker(2, "Александр", "Круглов");
+    Worker *wkr = new Worker("2", "Александр", "Круглов");
 
     MyCustomClass *mcc = new MyCustomClass();
 

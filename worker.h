@@ -10,7 +10,7 @@ class Worker: public QObject
     Q_OBJECT
 public:
     Worker();
-    Worker(const int& worid, const QString& firstname, const QString& secondname)
+    Worker(const QString& worid, const QString& firstname, const QString& secondname)
         :WorId(worid)
         , FirstName(firstname)
         , SecondName(secondname)
@@ -18,17 +18,19 @@ public:
 
     }
 
-    int getWorId() const;
-    void setWorId(int newWorId);
-
     const QString &getFirstName() const;
     void setFirstName(const QString &newFirstName);
 
     const QString &getSecondName() const;
     void setSecondName(const QString &newSecondName);
 
+
+
+    const QString &getWorId() const;
+    void setWorId(const QString &newWorId);
+
 private:
-    int WorId;
+    QString WorId;
     QString FirstName;
     QString SecondName;
 

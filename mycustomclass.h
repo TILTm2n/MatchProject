@@ -9,7 +9,6 @@ class MyCustomClass
 {
 public:
     MyCustomClass();
-    ~MyCustomClass();
 
     template <typename T>
     static bool Match (const T& object, QList<QString> propNames, QString input)

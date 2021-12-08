@@ -5,16 +5,6 @@ Worker::Worker()
 
 }
 
-int Worker::getWorId() const
-{
-    return WorId;
-}
-
-void Worker::setWorId(int newWorId)
-{
-    WorId = newWorId;
-}
-
 const QString &Worker::getFirstName() const
 {
     return FirstName;
@@ -34,6 +24,17 @@ void Worker::setSecondName(const QString &newSecondName)
 {
     SecondName = newSecondName;
 }
+
+const QString &Worker::getWorId() const
+{
+    return WorId;
+}
+
+void Worker::setWorId(const QString &newWorId)
+{
+    WorId = newWorId;
+}
+
 
 
 
