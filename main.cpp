@@ -12,9 +12,9 @@ int main(int argc, char *argv[])
 
     MyCustomClass *mcc = new MyCustomClass();
 
-    QList<QString>  properties{"WorId", "Firstname", "SecondName"};
+    QList<QString>  properties{"WorId", "FirstName", "SecondName"};
 
-    std::cout << mcc->Match(wkr, properties, "паеаквкв") << std::endl;
+    std::cout << mcc->Match(wkr, properties, "Алек") << std::endl;
 
     delete wkr;
     delete mcc;
