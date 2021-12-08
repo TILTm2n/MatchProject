@@ -6,6 +6,7 @@
 #include <QMetaObject>
 #include <QMetaProperty>
 
+#include <iostream>
 
 class MyCustomClass
 {
@@ -13,16 +14,22 @@ public:
     MyCustomClass();
 
     template <typename T>
-    static bool Match (const T& object, QList<QString> propNames, QString input)
+    static bool Match (const T* object, const QList<QString>& propNames, QString input)
     {   
-        for(const QString& str: propNames){
+        if(object == nullptr) //проверка на нулевой указаетль
+            return false;
+
+        for(const QString& str: propNames)
+        {
             for(int i = object->metaObject()->propertyOffset(); i < object->metaObject()->propertyCount(); ++i)
             {
                 const char* propertyName = object->metaObject()->property(i).name(); //имя свойства
                 QVariant propertyValue = object->metaObject()->property(i).read(object); // значение свойства
-                QString strpropname = propertyValue.toString();
+                QString strPropName = propertyValue.toString();
 
-                if (propertyName == str && strpropname.startsWith(input, Qt::CaseInsensitive)){
+                std::cout << (QString(propertyName) == str) << " " << propertyName << std::endl;
+
+                if (QString(propertyName) == str && strPropName.startsWith(input, Qt::CaseInsensitive)){
                     return true;
                 }
             }
