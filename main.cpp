@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
     QList<QString>  properties{"WorId", "Firstname", "SecondName"};
 
-    std::cout << mcc->Match(wkr, properties, "Алек") << std::endl;
+    std::cout << mcc->Match(wkr, properties, "паеаквкв") << std::endl;
 
     delete wkr;
     delete mcc;

@@ -19,21 +19,20 @@ public:
         if(object == nullptr) //проверка на нулевой указаетль
             return false;
 
-        for(const QString& str: propNames)
+        for(size_t i = object->metaObject()->propertyOffset(); i < object->metaObject()->propertyCount(); ++i)
         {
-            for(int i = object->metaObject()->propertyOffset(); i < object->metaObject()->propertyCount(); ++i)
+            const char* propertyName = object->metaObject()->property(i).name(); //имя свойства
+            if (propNames.contains(propertyName,Qt::CaseInsensitive))
             {
-                const char* propertyName = object->metaObject()->property(i).name(); //имя свойства
                 QVariant propertyValue = object->metaObject()->property(i).read(object); // значение свойства
-                QString strPropName = propertyValue.toString();
-
-                std::cout << (QString(propertyName) == str) << " " << propertyName << std::endl;
-
-                if (QString(propertyName) == str && strPropName.startsWith(input, Qt::CaseInsensitive)){
+                const QString& propertyValueStr = propertyValue.toString();
+                if (propertyValueStr.startsWith(input, Qt::CaseInsensitive))
+                {
                     return true;
                 }
             }
         }
+
         return false;
     }
 };
