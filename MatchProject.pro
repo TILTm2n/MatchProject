@@ -12,6 +12,7 @@ SOURCES += \
         apiresponse.cpp \
         main.cpp \
         mycustomclass.cpp \
+        room.cpp \
         worker.cpp
 
 # Default rules for deployment.
@@ -22,4 +23,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     apiresponse.h \
     mycustomclass.h \
+    room.h \
     worker.h
