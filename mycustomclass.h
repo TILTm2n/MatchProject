@@ -21,8 +21,8 @@ public:
 
         for(const QString& str: propNames)
         {
-            const auto index = object->metaObject()->indexOfProperty(str.toStdString().c_str());
-            const auto& value = object->metaObject()->property(index).read(object);
+            const int index = object->metaObject()->indexOfProperty(str.toStdString().c_str());
+            const QVariant& value = object->metaObject()->property(index).read(object);
 
             if(value.toString().startsWith(input,Qt::CaseInsensitive))
                 return true;
