@@ -30,7 +30,7 @@ public:
            const int& divid,
            const QString& divcode,
            const QString& worfio)
-        :worId(worid),
+        : worId(worid),
           tubNum(tubname),
           worFamily(worfamily),
           worName(worname),

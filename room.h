@@ -50,7 +50,6 @@ public:
     void setControlAreaId(std::optional<int> newControlAreaId);
 
 private:
-
     std::optional<int> wrpId;
     std::optional<int> wrpParentId;
     std::optional<QString> wrpCode;
