@@ -11,11 +11,11 @@ class Room : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(type wrpId READ getWrpId WRITE setWrpId)
-    Q_PROPERTY(type wrpParentId READ getWrpParentId WRITE setWrpParentId)
-    Q_PROPERTY(type wrpCode READ getWrpCode WRITE setWrpCode)
-    Q_PROPERTY(type wrpName READ getWrpName WRITE setWrpName)
-    Q_PROPERTY(type worSurcontrolAreaIdname READ getControlAreaId WRITE setControlAreaId)
+    Q_PROPERTY(std::optional<int> wrpId READ getWrpId WRITE setWrpId)
+    Q_PROPERTY(std::optional<int> wrpParentId READ getWrpParentId WRITE setWrpParentId)
+    Q_PROPERTY(std::optional<QString> wrpCode READ getWrpCode WRITE setWrpCode)
+    Q_PROPERTY(std::optional<QString> wrpName READ getWrpName WRITE setWrpName)
+    Q_PROPERTY(std::optional<int> worSurcontrolAreaIdname READ getControlAreaId WRITE setControlAreaId)
 
 public:
     Room();
