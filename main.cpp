@@ -1,12 +1,15 @@
 #include <QCoreApplication>
 #include "mycustomclass.h"
 #include "worker.h"
+#include "room.h"
+#include "division.h"
 #include <memory>
 #include <QList>
 
 using std::cout;
 using std::cin;
 using std::endl;
+using std::string;
 
 int main(int argc, char *argv[])
 {
@@ -25,6 +28,11 @@ int main(int argc, char *argv[])
 
     //return a.exec();
 
+    Worker *wrk = new Worker();
+    Room *rm = new Room();
+    Division *dvsn = new Division();
+
+
     enum Entities
     {
         Division,
@@ -33,27 +41,58 @@ int main(int argc, char *argv[])
     };
 
     int numberOfObject;
+    string nameOfObject;
 
-    cout << std::string(30, '_') << endl << endl;
+    cout << std::string(35, '_') << endl << endl;
     cout << "Console Nuclear Power Plant App" << endl;
-    cout << std::string(30, '_') << endl << endl;
+    cout << std::string(35, '_') << endl << endl;
 
-    cout << "Select your entity..." << endl;
-    cout << std::string(30, '_') << endl << endl;
-
+    cout << "Select your entity:" << endl;
     cout << "1. Division" << endl;
     cout << "2. Room" << endl;
     cout << "3. Worker" << endl;
-    cout << std::string(30, '_') << endl << endl;
+    cout << std::string(35, '_') << endl << endl;
 
-    cout << "Input: ";
+    cout << "Input -> ";
     cin >> numberOfObject;
-    cout << "You chose " << numberOfObject << endl;
-    cout << std::string(30, '_') << endl;
+    switch (numberOfObject)
+    {
+    case 1:
+        cout << "You chose Division that has propertires:"<< endl;
+        nameOfObject = "Division";
+        for(int i = dvsn->metaObject()->propertyOffset(); i < dvsn->metaObject()->propertyCount(); ++i)
+        {
+              cout << i << " -> " << dvsn->metaObject()->property(i).name() << endl;
+        }
+        cout << "Which properties have I to use to search required data?"<< endl;
+        break;
+    case 2:
+        cout << "You chose Room that has propertires:"<< endl;
+        nameOfObject = "Room";
+        for(int i = rm->metaObject()->propertyOffset(); i < rm->metaObject()->propertyCount(); ++i)
+        {
+              cout << i << " -> " << rm->metaObject()->property(i).name() << endl;
+        }
+        cout << "Which properties have I to use to search required data?"<< endl;
+        break;
+    case 3:
+        cout << "You chose Worker that has propertires:"<< endl;
+        nameOfObject = "Worker";
+        for(int i = wrk->metaObject()->propertyOffset(); i < wrk->metaObject()->propertyCount(); ++i)
+        {
+              cout << i << " -> " << wrk->metaObject()->property(i).name() << endl;
+        }
+        cout << "Which properties have I to use to search required data?"<< endl;
+        break;
+    default:
+        cout << "pososi" << endl;
+        break;
+    }
+    cout << std::string(35, '_') << endl;
 
 
-
-
-
+    delete wrk;
+    delete rm;
+    delete  dvsn;
     return 0;
 }
