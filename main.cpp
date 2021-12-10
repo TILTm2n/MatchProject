@@ -32,6 +32,8 @@ int main(int argc, char *argv[])
     Room *rm = new Room();
     Division *dvsn = new Division();
 
+    int numberOfObject;
+    string nameOfObject;
 
     enum Entities
     {
@@ -40,8 +42,20 @@ int main(int argc, char *argv[])
         Worker
     };
 
-    int numberOfObject;
-    string nameOfObject;
+    //methods
+    const auto printChoseMessage = [](string& chosenNumber,  const class Division* division)
+    {
+        cout << "You chose Division that has propertires:"<< endl;
+        chosenNumber = "Division";
+        for(int i = division->metaObject()->propertyOffset(); i < division->metaObject()->propertyCount(); ++i)
+        {
+              cout << i << " -> " << division->metaObject()->property(i).name() << endl;
+        }
+        cout << "Which properties have I to use to search required data?"<< endl;
+    };
+
+    // variables
+
 
     cout << std::string(35, '_') << endl << endl;
     cout << "Console Nuclear Power Plant App" << endl;
