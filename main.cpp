@@ -106,6 +106,7 @@ int main(int argc, char *argv[])
 
     cout << "Коммит ради коммита 1"<< endl;
     cout << "Коммит ради коммита 2"<< endl;
+    cout << "Коммит ради коммита 3"<< endl;
 
 
     delete wrk;
