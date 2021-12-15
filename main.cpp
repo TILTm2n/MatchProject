@@ -104,12 +104,6 @@ int main(int argc, char *argv[])
     }
     cout << std::string(35, '_') << endl;
 
-    cout << "Коммит ради коммита 1"<< endl;
-    cout << "Коммит ради коммита 2"<< endl;
-    cout << "Коммит ради коммита 3"<< endl;
-    cout << "Коммит ради коммита 4"<< endl;
-    cout << "Коммит ради коммита 5"<< endl;
-
     delete wrk;
     delete rm;
     delete  dvsn;
