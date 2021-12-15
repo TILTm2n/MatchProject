@@ -11,6 +11,20 @@ using std::cin;
 using std::endl;
 using std::string;
 
+template <typename P>
+void printChoseMessage(string& chosenNumber, const P& pointObj)
+{
+    cout << "You chose ////////// that has propertires:"<< endl;
+    chosenNumber = "//////////";
+    for(int i = pointObj->metaObject()->propertyOffset(); i < pointObj->metaObject()->propertyCount(); ++i)
+    {
+          cout << i << " -> " << pointObj->metaObject()->property(i).name() << endl;
+    }
+    cout << "Which properties have I to use to search required data?"<< endl;
+};
+
+
+
 int main(int argc, char *argv[])
 {
     //QCoreApplication a(argc, argv);
@@ -41,20 +55,6 @@ int main(int argc, char *argv[])
         Room,
         Worker
     };
-
-    //methods
-    const auto printChoseMessage = [](string& chosenNumber,  const class Division* division)
-    {
-        cout << "You chose Division that has propertires:"<< endl;
-        chosenNumber = "Division";
-        for(int i = division->metaObject()->propertyOffset(); i < division->metaObject()->propertyCount(); ++i)
-        {
-              cout << i << " -> " << division->metaObject()->property(i).name() << endl;
-        }
-        cout << "Which properties have I to use to search required data?"<< endl;
-    };
-
-    // variables
 
 
     cout << std::string(35, '_') << endl << endl;
