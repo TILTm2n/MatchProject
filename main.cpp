@@ -34,10 +34,12 @@ void printChoseMessage(const P& pointObj)
     cout << "You chose " << pointObj->metaObject()->className() << " that has propertires:"<< endl;
     for(int i = pointObj->metaObject()->propertyOffset(); i < pointObj->metaObject()->propertyCount(); ++i)
     {
-          cout << i << " -> " << pointObj->metaObject()->property(i).name() << endl;
+          cout << i << " -> " << pointObj->metaObject()->property(i).name() << endl << endl;
     }
 
-    cout << "Which properties have I to use to search required data?"<< endl;
+    cout << std::string(35, '_') << endl;
+
+    cout << "Which properties have I to use to search required data?"<< endl << endl;
 
     cin.ignore(32767, '\n');
     getline(cin, listOfChoosenNumbers);
@@ -50,7 +52,7 @@ void printChoseMessage(const P& pointObj)
 
     for(auto prop: metaProperties)
     {
-        cout << prop.name() << endl;
+        cout << "-> " << prop.name() << endl;
     }
 
 };
@@ -112,7 +114,7 @@ int main(int argc, char *argv[])
         cout << "pososi" << endl;
         break;
     }
-    cout << std::string(35, '_') << endl;
+    cout << std::string(35, '_') << endl << endl;
 
 
 
