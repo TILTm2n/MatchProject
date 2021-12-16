@@ -31,10 +31,16 @@ void printChoseMessage(const P& pointObj)
 
     QStringList stringListOfInts = stringOfInts.split(QLatin1Char(','), Qt::SkipEmptyParts);
 
-    for(auto num: stringListOfInts){
+    for(QString num: stringListOfInts){
         listOfInts.append(num.toInt());
     }
 
+    QList<QMetaProperty> metaProperties = getMetaProperties(listOfInts, pointObj);
+
+    for(auto prop: metaProperties)
+    {
+        cout << prop.name() << endl;
+    }
 
 };
 
@@ -47,7 +53,7 @@ QList<QMetaProperty> getMetaProperties(const QList<int>& ints, const P& targetOb
     {
         propsList.append(targetObject->metaObject()->property(num));
     }
-
+    return propsList;
 }
 
 
@@ -91,6 +97,11 @@ int main(int argc, char *argv[])
         break;
     }
     cout << std::string(35, '_') << endl;
+
+    string listOfChoosenNumbers;
+    getline(cin, listOfChoosenNumbers);
+    cout << listOfChoosenNumbers << endl;
+
 
     delete wrk;
     delete rm;
