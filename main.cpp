@@ -13,11 +13,22 @@ using std::endl;
 using std::string;
 using std::getline;
 
+QList<int> getListOfInts(const QString& stringOfInts)
+{
+    QStringList stringListOfInts = stringOfInts.split(QLatin1Char(','), Qt::SkipEmptyParts);
+    QList<int> listOfInts;
+
+    for(QString num: stringListOfInts){
+        listOfInts.append(num.toInt());
+    }
+    return listOfInts;
+}
+
 template <typename P>
 void printChoseMessage(const P& pointObj)
 {
     string listOfChoosenNumbers;
-    QString stringOfInts = QString(listOfChoosenNumbers.c_str());
+
     QList<int> listOfInts;
 
     cout << "You chose " << pointObj->metaObject()->className() << " that has propertires:"<< endl;
@@ -25,15 +36,15 @@ void printChoseMessage(const P& pointObj)
     {
           cout << i << " -> " << pointObj->metaObject()->property(i).name() << endl;
     }
+
     cout << "Which properties have I to use to search required data?"<< endl;
 
+    cin.ignore(32767, '\n');
     getline(cin, listOfChoosenNumbers);
 
-    QStringList stringListOfInts = stringOfInts.split(QLatin1Char(','), Qt::SkipEmptyParts);
+    QString stringOfInts = QString(listOfChoosenNumbers.c_str());
 
-    for(QString num: stringListOfInts){
-        listOfInts.append(num.toInt());
-    }
+    listOfInts = getListOfInts(stringOfInts);
 
     QList<QMetaProperty> metaProperties = getMetaProperties(listOfInts, pointObj);
 
@@ -59,6 +70,7 @@ QList<QMetaProperty> getMetaProperties(const QList<int>& ints, const P& targetOb
 
 
 
+
 int main(int argc, char *argv[])
 {
 
@@ -68,6 +80,10 @@ int main(int argc, char *argv[])
 
     int numberOfObject;
     string nameOfObject;
+
+    string listOfChoosenNumbers;
+    QString stringOfInts = QString(listOfChoosenNumbers.c_str());
+    //QList<int> listOfInts;
 
     cout << std::string(35, '_') << endl << endl;
     cout << "Console Nuclear Power Plant App" << endl;
@@ -98,9 +114,7 @@ int main(int argc, char *argv[])
     }
     cout << std::string(35, '_') << endl;
 
-    string listOfChoosenNumbers;
-    getline(cin, listOfChoosenNumbers);
-    cout << listOfChoosenNumbers << endl;
+
 
 
     delete wrk;
