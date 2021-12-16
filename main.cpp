@@ -5,42 +5,51 @@
 #include "division.h"
 #include <memory>
 #include <QList>
+#include <QString>
 
 using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
+using std::getline;
 
 template <typename P>
-void printChoseMessage(string& chosenNumber, const P& pointObj)
+void printChoseMessage(const P& pointObj)
 {
-    cout << "You chose ////////// that has propertires:"<< endl;
-    chosenNumber = "//////////";
+    string listOfChoosenNumbers;
+    QString stringOfInts = QString(listOfChoosenNumbers.c_str());
+    QList<int> listOfInts;
+
+    cout << "You chose " << pointObj->metaObject()->className() << " that has propertires:"<< endl;
     for(int i = pointObj->metaObject()->propertyOffset(); i < pointObj->metaObject()->propertyCount(); ++i)
     {
           cout << i << " -> " << pointObj->metaObject()->property(i).name() << endl;
     }
     cout << "Which properties have I to use to search required data?"<< endl;
+
+    getline(cin, listOfChoosenNumbers);
+
+    QStringList stringListOfInts = stringOfInts.split(QLatin1Char(','), Qt::SkipEmptyParts);
+
+    for(auto num: stringListOfInts){
+        listOfInts.append(num.toInt());
+    }
+
+
 };
+
+template <typename P>
+QList<QMetaProperty> getMetaProperties(const QList<int>& ints)
+{
+    QList<QMetaProperty> propsList;
+
+}
+
 
 
 
 int main(int argc, char *argv[])
 {
-    //QCoreApplication a(argc, argv);
-
-    //Worker *wkr = new Worker{"2", "Александр", "Круглов"};
-
-    //MyCustomClass *mcc = new MyCustomClass();
-
-    //QList<QString>  properties{"worId", "worName", "worSurname"};
-
-    //std::cout << mcc->Match(wkr, properties, "А") << std::endl;
-
-    //delete wkr;
-    //delete mcc;
-
-    //return a.exec();
 
     Worker *wrk = new Worker();
     Room *rm = new Room();
@@ -48,14 +57,6 @@ int main(int argc, char *argv[])
 
     int numberOfObject;
     string nameOfObject;
-
-    enum Entities
-    {
-        Division,
-        Room,
-        Worker
-    };
-
 
     cout << std::string(35, '_') << endl << endl;
     cout << "Console Nuclear Power Plant App" << endl;
@@ -72,31 +73,13 @@ int main(int argc, char *argv[])
     switch (numberOfObject)
     {
     case 1:
-        cout << "You chose Division that has propertires:"<< endl;
-        nameOfObject = "Division";
-        for(int i = dvsn->metaObject()->propertyOffset(); i < dvsn->metaObject()->propertyCount(); ++i)
-        {
-              cout << i << " -> " << dvsn->metaObject()->property(i).name() << endl;
-        }
-        cout << "Which properties have I to use to search required data?"<< endl;
+        printChoseMessage(dvsn);
         break;
     case 2:
-        cout << "You chose Room that has propertires:"<< endl;
-        nameOfObject = "Room";
-        for(int i = rm->metaObject()->propertyOffset(); i < rm->metaObject()->propertyCount(); ++i)
-        {
-              cout << i << " -> " << rm->metaObject()->property(i).name() << endl;
-        }
-        cout << "Which properties have I to use to search required data?"<< endl;
+        printChoseMessage(rm);
         break;
     case 3:
-        cout << "You chose Worker that has propertires:"<< endl;
-        nameOfObject = "Worker";
-        for(int i = wrk->metaObject()->propertyOffset(); i < wrk->metaObject()->propertyCount(); ++i)
-        {
-              cout << i << " -> " << wrk->metaObject()->property(i).name() << endl;
-        }
-        cout << "Which properties have I to use to search required data?"<< endl;
+        printChoseMessage(wrk);
         break;
     default:
         cout << "pososi" << endl;
