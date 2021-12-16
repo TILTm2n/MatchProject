@@ -39,9 +39,14 @@ void printChoseMessage(const P& pointObj)
 };
 
 template <typename P>
-QList<QMetaProperty> getMetaProperties(const QList<int>& ints)
+QList<QMetaProperty> getMetaProperties(const QList<int>& ints, const P& targetObject)
 {
     QList<QMetaProperty> propsList;
+
+    for(auto num: ints)
+    {
+        propsList.append(targetObject->metaObject()->property(num));
+    }
 
 }
 
