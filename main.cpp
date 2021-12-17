@@ -85,7 +85,6 @@ int main(int argc, char *argv[])
 
     string listOfChoosenNumbers;
     QString stringOfInts = QString(listOfChoosenNumbers.c_str());
-    //QList<int> listOfInts;
 
     cout << std::string(35, '_') << endl << endl;
     cout << "Console Nuclear Power Plant App" << endl;

@@ -22,6 +22,15 @@ class APIResponse : public QObject
 public:
     APIResponse();
 
+    QNetworkAccessManager *getRoomManager() const;
+    void setRoomManager(QNetworkAccessManager *newRoomManager);
+
+    QNetworkAccessManager *getWorkerManager() const;
+    void setWorkerManager(QNetworkAccessManager *newWorkerManager);
+
+    QNetworkAccessManager *getDivisionManager() const;
+    void setDivisionManager(QNetworkAccessManager *newDivisionManager);
+
 private slots:
     void onRoomResult(QNetworkReply* roomReply);
     void onWorkerResult(QNetworkReply* workerReply);
