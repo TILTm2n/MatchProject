@@ -25,10 +25,9 @@ QList<int> getListOfInts(const QString& stringOfInts)
 }
 
 template <typename P>
-void printChoseMessage(const P& pointObj)
+void printChoseMessage(const P& pointObj, QList<QString>& properties)
 {
     string listOfChoosenNumbers;
-
     QList<int> listOfInts;
 
     cout << "You chose " << pointObj->metaObject()->className() << " that has propertires:"<< endl;
@@ -53,7 +52,10 @@ void printChoseMessage(const P& pointObj)
     for(auto prop: metaProperties)
     {
         cout << "-> " << prop.name() << endl;
+
+        properties.append(QString(prop.name())); //могут быть проблемы с размером
     }
+
 
 };
 
@@ -83,8 +85,10 @@ int main(int argc, char *argv[])
     int numberOfObject;
     string nameOfObject;
 
-    string listOfChoosenNumbers;
-    QString stringOfInts = QString(listOfChoosenNumbers.c_str());
+    //string listOfChoosenNumbers;
+    //QString stringOfInts = QString(listOfChoosenNumbers.c_str());
+
+    QList<QString> searchProperties;
 
     cout << std::string(35, '_') << endl << endl;
     cout << "Console Nuclear Power Plant App" << endl;
@@ -101,19 +105,21 @@ int main(int argc, char *argv[])
     switch (numberOfObject)
     {
     case 1:
-        printChoseMessage(dvsn);
+        printChoseMessage(dvsn, searchProperties);
         break;
     case 2:
-        printChoseMessage(rm);
+        printChoseMessage(rm, searchProperties);
         break;
     case 3:
-        printChoseMessage(wrk);
+        printChoseMessage(wrk, searchProperties);
         break;
     default:
         cout << "pososi" << endl;
         break;
     }
     cout << std::string(35, '_') << endl << endl;
+
+
 
 
 
