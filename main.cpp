@@ -3,6 +3,7 @@
 #include "worker.h"
 #include "room.h"
 #include "division.h"
+#include "apiresponse.h"
 #include <memory>
 #include <QList>
 #include <QString>
@@ -82,6 +83,8 @@ int main(int argc, char *argv[])
     Room *rm = new Room();
     Division *dvsn = new Division();
 
+    APIResponse* netManager = new APIResponse();
+
     int numberOfObject;
     string nameOfObject;
 
@@ -118,6 +121,19 @@ int main(int argc, char *argv[])
         break;
     }
     cout << std::string(35, '_') << endl << endl;
+
+    netManager->properties = searchProperties;
+
+    string input;
+    QString userInput = QString(input.c_str());
+
+    cout << "Please, input string -> " << endl << endl;
+
+    cin >> input;
+
+    cout << std::string(35, '_') << endl << endl;
+
+    netManager->userInput = userInput;
 
 
 

@@ -31,6 +31,10 @@ public:
     QNetworkAccessManager *getDivisionManager() const;
     void setDivisionManager(QNetworkAccessManager *newDivisionManager);
 
+public:
+    QList<QString> properties;
+    QString userInput;
+
 private slots:
     void onRoomResult(QNetworkReply* roomReply);
     void onWorkerResult(QNetworkReply* workerReply);
