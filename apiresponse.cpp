@@ -18,8 +18,8 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
     QJsonDocument document = QJsonDocument::fromJson(roomReply->readAll());
     QJsonArray rooms = document.array();
 
-    for(auto room: rooms){
-        if(match.Match(room, properties, userInput))
+    for(const auto& room: rooms){
+        if(match.Match(&room, properties, userInput))
         {
 
         }
