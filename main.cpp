@@ -1,12 +1,17 @@
+#include <QNetworkAccessManager>
 #include <QCoreApplication>
-#include "mycustomclass.h"
-#include "worker.h"
-#include "room.h"
-#include "division.h"
-#include "apiresponse.h"
+#include <QNetworkRequest>
+#include <QString>
 #include <memory>
 #include <QList>
-#include <QString>
+#include <QUrl>
+
+#include "mycustomclass.h"
+#include "apiresponse.h"
+#include "apiresponse.h"
+#include "division.h"
+#include "worker.h"
+#include "room.h"
 
 using std::cout;
 using std::cin;
@@ -134,6 +139,22 @@ int main(int argc, char *argv[])
     cout << std::string(35, '_') << endl << endl;
 
     netManager->userInput = userInput;
+
+    switch (numberOfObject)
+    {
+    case 1:
+        netManager->getRoomManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
+        break;
+    case 2:
+        netManager->getWorkerManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Worker")));
+        break;
+    case 3:
+        netManager->getDivisionManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Division")));
+        break;
+    default:
+        cout << "pososi еще раз" << endl;
+        break;
+    }
 
 
 
