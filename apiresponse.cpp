@@ -13,17 +13,31 @@ APIResponse::APIResponse()
 
 void APIResponse::onRoomResult(QNetworkReply *roomReply)
 {
+    MyCustomClass match;
+
+    QJsonDocument document = QJsonDocument::fromJson(roomReply->readAll());
+    QJsonArray rooms = document.array();
+
+    for(auto room: rooms){
+        if(match.Match(room, properties, userInput))
+        {
+
+        }
+    }
+
 
 }
 
 void APIResponse::onWorkerResult(QNetworkReply *workerReply)
 {
-
+    QJsonDocument document = QJsonDocument::fromJson(workerReply->readAll());
+    QJsonArray workers = document.array();
 }
 
 void APIResponse::onDivisionResult(QNetworkReply *divisionReply)
 {
-
+    QJsonDocument document = QJsonDocument::fromJson(divisionReply->readAll());
+    QJsonArray divisions = document.array();
 }
 
 QNetworkAccessManager *APIResponse::getDivisionManager() const

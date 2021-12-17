@@ -1,18 +1,20 @@
 #ifndef APIRESPONSE_H
 #define APIRESPONSE_H
 
+#include "mycustomclass.h"
+
 #include <QNetworkAccessManager>
-#include <QNetworkReply>
 #include <QNetworkRequest>
+#include <QNetworkReply>
 
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
 
-#include <QList>
+#include <QStringList>
 #include <QObject>
 #include <QString>
-#include <QStringList>
+#include <QList>
 
 
 class APIResponse : public QObject
