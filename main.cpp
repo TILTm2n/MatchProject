@@ -157,6 +157,7 @@ int main(int argc, char *argv[])
     }
 
     cout << "commit 1" << endl;
+    cout << "commit 2" << endl;
 
 
 
