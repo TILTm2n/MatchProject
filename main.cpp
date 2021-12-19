@@ -160,6 +160,7 @@ int main(int argc, char *argv[])
     cout << "commit 2" << endl;
     cout << "commit 3" << endl;
     cout << "commit 4" << endl;
+    cout << "commit 5" << endl;
 
 
 
