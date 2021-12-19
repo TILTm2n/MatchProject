@@ -17,10 +17,19 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
 
     QJsonDocument document = QJsonDocument::fromJson(roomReply->readAll());
     QJsonArray rooms = document.array();
+    QList<QJsonObject> roomsJObjs;
 
     for(const auto& room: rooms){
+
         if(match.Match(&room, properties, userInput))
         {
+            QString implementation;
+            roomsJObjs.append(room.toObject());
+
+            for(auto rm: roomsJObjs)
+            {
+
+            }
 
         }
     }

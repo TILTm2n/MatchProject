@@ -156,7 +156,7 @@ int main(int argc, char *argv[])
         break;
     }
 
-
+    cout << "commit 1" << endl;
 
 
 
