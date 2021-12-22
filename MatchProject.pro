@@ -10,6 +10,7 @@ CONFIG -= app_bundle
 
 SOURCES += \
         apiresponse.cpp \
+        deserealizator.cpp \
         division.cpp \
         main.cpp \
         mycustomclass.cpp \
@@ -23,6 +24,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     apiresponse.h \
+    deserealizator.h \
     division.h \
     mycustomclass.h \
     room.h \
