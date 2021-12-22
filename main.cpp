@@ -18,6 +18,7 @@ using std::cin;
 using std::endl;
 using std::string;
 using std::getline;
+using namespace std::chrono_literals;
 
 QList<int> getListOfInts(const QString& stringOfInts)
 {
@@ -84,6 +85,8 @@ QList<QMetaProperty> getMetaProperties(const QList<int>& ints, const P& targetOb
 int main(int argc, char *argv[])
 {
 
+    QCoreApplication a(argc, argv);
+
     Worker *wrk = new Worker();
     Room *rm = new Room();
     Division *dvsn = new Division();
@@ -140,27 +143,32 @@ int main(int argc, char *argv[])
 
     netManager->userInput = userInput;
 
-    switch (numberOfObject)
-    {
-    case 1:
-        netManager->getRoomManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
-        break;
-    case 2:
-        netManager->getWorkerManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Worker")));
-        break;
-    case 3:
-        netManager->getDivisionManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Division")));
-        break;
-    default:
-        cout << "pososi еще раз" << endl;
-        break;
-    }
+    const auto manager = netManager->getRoomManager();
+    const auto reply = manager->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
+//    while(!reply->isFinished()){
+//        std::this_thread::sleep_for(1s);
+//    }
 
-    cout << "commit 1" << endl;
-    cout << "commit 2" << endl;
-    cout << "commit 3" << endl;
-    cout << "commit 4" << endl;
-    cout << "commit 5" << endl;
+
+//    switch (numberOfObject)
+//    {
+//    case 1:
+//        netManager->getRoomManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
+//        break;
+//    case 2:
+//        netManager->getWorkerManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Worker")));
+//        break;
+//    case 3:
+//        netManager->getDivisionManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Division")));
+//        break;
+//    default:
+//        cout << "pososi еще раз" << endl;
+//        break;
+//    }
+
+    cout << numberOfObject << endl << endl;
+
+
 
 
 
@@ -168,5 +176,6 @@ int main(int argc, char *argv[])
     delete wrk;
     delete rm;
     delete  dvsn;
-    return 0;
+
+    return a.exec();
 }

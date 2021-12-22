@@ -13,26 +13,28 @@ APIResponse::APIResponse()
 
 void APIResponse::onRoomResult(QNetworkReply *roomReply)
 {
-    MyCustomClass match;
-
+    //MyCustomClass match;
     QJsonDocument document = QJsonDocument::fromJson(roomReply->readAll());
     QJsonArray rooms = document.array();
-    QList<QJsonObject> roomsJObjs;
+    qDebug() << typeid (rooms[0].toObject()).name();
+    qDebug() << rooms[0].toObject().keys();
+    qDebug() << rooms[0].toObject().value("controlAreaId");
+//    QList<QJsonObject> roomsJObjs;
 
-    for(const auto& room: rooms){
+//    for(const auto& room: rooms){
 
-        if(match.Match(&room, properties, userInput))
-        {
-            QString implementation;
-            roomsJObjs.append(room.toObject());
+//        if(match.Match(&room, properties, userInput))
+//        {
+//            QString implementation;
+//            roomsJObjs.append(room.toObject());
 
-            for(auto rm: roomsJObjs)
-            {
+//            for(auto rm: roomsJObjs)
+//            {
 
-            }
+//            }
 
-        }
-    }
+//        }
+//    }
 
 
 }
