@@ -16,9 +16,11 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
     //MyCustomClass match;
     QJsonDocument document = QJsonDocument::fromJson(roomReply->readAll());
     QJsonArray rooms = document.array();
-    qDebug() << typeid (rooms[0].toObject()).name();
-    qDebug() << rooms[0].toObject().keys();
-    qDebug() << rooms[0].toObject().value("controlAreaId");
+    qDebug() << typeid (rooms[0]).name();
+    //qDebug() << rooms[0].toObject().keys();
+   qDebug() << rooms[0].toObject().value("controlAreaId").toInt();
+   qDebug() << rooms[0].toObject().value("wrpCode");
+//    qDebug() << QString(roomReply->readAll());
 //    QList<QJsonObject> roomsJObjs;
 
 //    for(const auto& room: rooms){
