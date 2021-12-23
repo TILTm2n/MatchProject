@@ -1,5 +1,8 @@
 #include "apiresponse.h"
 #include "deserealizator.h"
+#include "division.h"
+#include "worker.h"
+#include "room.h"
 
 APIResponse::APIResponse()
 {
@@ -17,12 +20,17 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
     MyCustomClass match;
     Deserealizator des;
 
+
+
     QJsonDocument document = QJsonDocument::fromJson(roomReply->readAll());
     QJsonArray rooms = document.array();
-    qDebug() << typeid (rooms[0]).name();
-    //qDebug() << rooms[0].toObject().keys();
-    qDebug() << rooms[0].toObject().value("controlAreaId").toInt();
-    qDebug() << rooms[0].toObject().value("wrpCode");
+
+
+
+//    qDebug() << typeid (rooms[0]).name();
+//    //qDebug() << rooms[0].toObject().keys();
+//    qDebug() << rooms[0].toObject().value("controlAreaId").toInt();
+//    qDebug() << rooms[0].toObject().value("wrpCode");
 //    qDebug() << QString(roomReply->readAll());
 //    QList<QJsonObject> roomsJObjs;
 

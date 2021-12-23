@@ -19,9 +19,9 @@ public:
 private:
 
 template<typename T>
-    static T* Deserealize(QJsonValue jv)
+    static T* Deserealize(const T* t,QJsonValue jv)
     {   
-        T* t = new T();
+        //T* t = new T();
         int amountOfProp = t->metaObject()->propertyOffset();
         QStringList propNames = jv.toObject().keys();
 
