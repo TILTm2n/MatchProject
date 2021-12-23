@@ -1,4 +1,5 @@
 #include "apiresponse.h"
+#include "deserealizator.h"
 
 APIResponse::APIResponse()
 {
@@ -13,9 +14,9 @@ APIResponse::APIResponse()
 
 void APIResponse::onRoomResult(QNetworkReply *roomReply)
 {
+    MyCustomClass match;
+    Deserealizator des;
 
-
-    //MyCustomClass match;
     QJsonDocument document = QJsonDocument::fromJson(roomReply->readAll());
     QJsonArray rooms = document.array();
     qDebug() << typeid (rooms[0]).name();
