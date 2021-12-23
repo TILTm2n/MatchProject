@@ -16,8 +16,6 @@ class Deserealizator
 public:
     Deserealizator();
 
-private:
-
 template<typename T>
     static T* Deserealize(const T* t,QJsonValue jv)
     {   
