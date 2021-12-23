@@ -20,10 +20,32 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
     MyCustomClass match;
     Deserealizator des;
 
-
+    QList<Room> areas;
+    QList<Room> matchedAreas;
 
     QJsonDocument document = QJsonDocument::fromJson(roomReply->readAll());
     QJsonArray rooms = document.array();
+
+
+    for(const auto& room: rooms)
+    {
+
+        Room *newSlot = new Room();
+
+        des.Deserealize(newSlot, room.toObject());
+
+        areas.append(*newSlot);
+
+    }
+
+    for(const auto& area: areas)
+    {
+        if(match.Match(&area, properties, userInput)){ //а здесь я не передаю ссылку на ссылку?
+            matchedAreas.append(area);
+        }
+    }
+
+    qDebug() << matchedAreas.count();
 
 
 

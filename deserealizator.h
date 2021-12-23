@@ -17,21 +17,19 @@ public:
     Deserealizator();
 
 template<typename T>
-    static T* Deserealize(const T* t,QJsonValue jv)
+    static void Deserealize(T* t, const QJsonObject& jv)
     {   
         //T* t = new T();
-        int amountOfProp = t->metaObject()->propertyOffset();
-        QStringList propNames = jv.toObject().keys();
 
-        for(int i = 0; i = amountOfProp; ++i){
+        QStringList propNames = jv.keys();
+
+        for(size_t i = 0; i = t->metaObject()->propertyOffset(); ++i){
             for(const QString& name: propNames){
                 if(t->metaObject()->property(i).name() == name.toStdString()){
-                    t->metaObject()->property(i).write(&t, name);
+                    t->metaObject()->property(i).write(t, name);
                 }
             }
         }
-
-        return t;
     }
 };
 
