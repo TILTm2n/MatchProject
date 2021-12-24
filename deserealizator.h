@@ -23,7 +23,7 @@ template<typename T>
 
         QStringList propNames = jv.keys();
 
-        for(size_t i = 0; i = t->metaObject()->propertyOffset(); ++i){
+        for(size_t i = 0; i < t->metaObject()->propertyOffset(); ++i){
             for(const QString& name: propNames){
                 if(t->metaObject()->property(i).name() == name.toStdString()){
                     t->metaObject()->property(i).write(t, name);
