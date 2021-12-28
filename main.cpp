@@ -168,7 +168,8 @@ int main(int argc, char *argv[])
 
     cout << numberOfObject << endl << endl;
     cout << numberOfObject << endl << endl;
-    сout << numberOfObject << endl << endl;
+    cout << numberOfObject << endl << endl;
+    cout << numberOfObject << endl << endl;
 
 
 
