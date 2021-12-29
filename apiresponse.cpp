@@ -25,8 +25,11 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
 
     QList<std::shared_ptr<Room>> list;
 
+    //std::cout << userInput.toStdString() << std::endl;
+
     for(const auto& room: rooms)
     {
+        //std::cout << room.toObject().value("wrpName").toString().toStdString() << std::endl;
         auto new_slot = std::make_shared<Room>();
 
         des.Deserealize(new_slot.get(), room.toObject());

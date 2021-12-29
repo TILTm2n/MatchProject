@@ -141,8 +141,15 @@ int main(int argc, char *argv[])
 
     cout << std::string(35, '_') << endl << endl;
 
+    cout << "poka rabotaet" << endl << endl;
+
     netManager->userInput = userInput;
+
+    cout << "userInput = " << netManager->userInput.toStdString() << endl << endl;
+
     netManager->getRoomManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
+    //cout << "ne rabotaet" << endl;
+
 
 //    while(!reply->isFinished()){
 //        std::this_thread::sleep_for(1s);
