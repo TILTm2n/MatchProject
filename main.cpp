@@ -144,7 +144,8 @@ int main(int argc, char *argv[])
     netManager->userInput = userInput;
 
     const auto manager = netManager->getRoomManager();
-    const auto reply = manager->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
+    manager->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
+
 //    while(!reply->isFinished()){
 //        std::this_thread::sleep_for(1s);
 //    }
@@ -166,11 +167,7 @@ int main(int argc, char *argv[])
 //        break;
 //    }
 
-    cout << numberOfObject << endl << endl;
-    cout << numberOfObject << endl << endl;
-    cout << numberOfObject << endl << endl;
-    cout << numberOfObject << endl << endl;
-    cout << numberOfObject << endl << endl;
+
 
 
 
