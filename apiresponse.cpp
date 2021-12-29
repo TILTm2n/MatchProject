@@ -23,18 +23,20 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
     QJsonDocument document = QJsonDocument::fromJson(roomReply->readAll());
     QJsonArray rooms = document.array();
 
-QList<std::shared_ptr<Room>> list;
+    QList<std::shared_ptr<Room>> list;
 
     for(const auto& room: rooms)
     {
         auto new_slot = std::make_shared<Room>();
 
         des.Deserealize(new_slot.get(), room.toObject());
+        if(match.Match(*new_slot, properties, userInput)){
+            std::cout << new_slot->getWrpName().value().toStdString() << std::endl;
+        }
 
         list.append(new_slot);
-
-
     }
+
 
 
 

@@ -133,11 +133,11 @@ int main(int argc, char *argv[])
     netManager->properties = searchProperties;
 
     string input;
-    QString userInput = QString(input.c_str());
 
     cout << "Please, input string -> " << endl << endl;
 
     cin >> input;
+    QString userInput = QString(input.c_str());
 
     cout << std::string(35, '_') << endl << endl;
 
