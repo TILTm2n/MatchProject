@@ -142,9 +142,7 @@ int main(int argc, char *argv[])
     cout << std::string(35, '_') << endl << endl;
 
     netManager->userInput = userInput;
-
-    const auto manager = netManager->getRoomManager();
-    manager->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
+    netManager->getRoomManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
 
 //    while(!reply->isFinished()){
 //        std::this_thread::sleep_for(1s);
