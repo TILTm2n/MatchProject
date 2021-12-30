@@ -35,13 +35,13 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
         cout << "началло работы десериализатора" << endl;
         des.Deserealize(new_slot.get(), room.toObject());
 
-        cout << new_slot->metaObject()->property(0).typeName() << endl;
-        cout << new_slot->metaObject()->property(0).name() << endl;
-        cout << new_slot->metaObject()->property(1).name() << endl;
-        cout << new_slot->metaObject()->property(2).name() << endl;
-        cout << new_slot->metaObject()->property(3).name() << endl;
-        cout << new_slot->metaObject()->property(4).name() << endl;
-        cout << new_slot->metaObject()->property(5).name() << endl;
+//        cout << new_slot->metaObject()->property(0).typeName() << endl;
+//        cout << new_slot->metaObject()->property(0).name() << endl;
+//        cout << new_slot->metaObject()->property(1).name() << endl;
+//        cout << new_slot->metaObject()->property(2).name() << endl;
+//        cout << new_slot->metaObject()->property(3).name() << endl;
+//        cout << new_slot->metaObject()->property(4).name() << endl;
+//        cout << new_slot->metaObject()->property(5).name() << endl;
 
         if(match.Match(*new_slot, properties, userInput)){
             std::cout << new_slot->getWrpName().value().toStdString() << std::endl;
