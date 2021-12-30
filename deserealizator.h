@@ -10,6 +10,9 @@
 #include <QMetaProperty>
 
 #include <iostream>
+using std::cout;
+using std::cin;
+using std::endl;
 
 class Deserealizator
 {
@@ -30,6 +33,7 @@ template<typename T>
                 }
             }
         }
+        cout << "отработал десериализатор" << endl;
     }
 };
 
