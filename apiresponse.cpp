@@ -35,6 +35,13 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
         cout << "началло работы десериализатора" << endl;
         des.Deserealize(new_slot.get(), room.toObject());
 
+        cout << "вот сейчас будет значение" << endl;
+        cout << new_slot->getWrpId().value() << endl;
+        cout << new_slot->getWrpParentId().value() << endl;
+        cout << new_slot->getWrpCode().value_or("Кода нет").toStdString() << endl;
+        cout << new_slot->getWrpName().value_or("Имени нет").toStdString() << endl;
+        cout << new_slot->getControlAreaId().value() << endl;
+        cout << "вот только что было значение" << endl;
 //        cout << new_slot->metaObject()->property(0).typeName() << endl;
 //        cout << new_slot->metaObject()->property(0).name() << endl;
 //        cout << new_slot->metaObject()->property(1).name() << endl;
@@ -43,9 +50,9 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
 //        cout << new_slot->metaObject()->property(4).name() << endl;
 //        cout << new_slot->metaObject()->property(5).name() << endl;
 
-        if(match.Match(*new_slot, properties, userInput)){
-            std::cout << new_slot->getWrpName().value().toStdString() << std::endl;
-        }
+//        if(match.Match(*new_slot, properties, userInput)){
+//            std::cout << new_slot->getWrpName().value().toStdString() << std::endl;
+//        }
 
         //list.append(new_slot);
     }
