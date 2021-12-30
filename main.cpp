@@ -148,7 +148,8 @@ int main(int argc, char *argv[])
     cout << "userInput = " << netManager->userInput.toStdString() << endl << endl;
 
     netManager->getRoomManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
-    //cout << "ne rabotaet" << endl;
+
+    cout << "ne rabotaet" << endl;
 
 
 //    while(!reply->isFinished()){
