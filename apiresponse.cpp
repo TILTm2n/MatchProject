@@ -4,6 +4,10 @@
 #include "worker.h"
 #include "room.h"
 
+using std::cout;
+using std::in;
+using std::endl;
+
 APIResponse::APIResponse()
 {
     roomManager = new QNetworkAccessManager;
@@ -23,7 +27,7 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
     QJsonArray rooms = document.array();
 
     //QList<std::shared_ptr<Room>> list;
-
+    int falseCounter = 0;
     int counter = 1;
     for(const auto& room: rooms)
     {
@@ -33,8 +37,14 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
         if(match.Match(*new_room, properties, userInput)){
             std::cout << "Room " << counter << "----> " << new_room->getWrpName().toStdString() << std::endl;
             ++counter;
+        }else{
+            ++falseCounter;
         }
         //list.append(new_slot);
+
+    }
+    if(falseCounter == rooms.count()){
+
     }
 }
 

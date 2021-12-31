@@ -21,8 +21,9 @@ public:
             const int index = object.metaObject()->indexOfProperty(str.toStdString().c_str());
             const QVariant& value = object.metaObject()->property(index).read(&object);
 
-            if(value.toString().startsWith(input,Qt::CaseInsensitive))
+            if(value.toString().startsWith(input,Qt::CaseInsensitive)){
                 return true;
+            }
         }
         return false;
     }
