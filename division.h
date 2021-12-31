@@ -9,11 +9,11 @@
 class Division : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(std::optional<int> divId READ getDivId WRITE setDivId)
-    Q_PROPERTY(std::optional<QString> divCode READ getDivCode WRITE setDivCode)
-    Q_PROPERTY(std::optional<QString> divName READ getDivName WRITE setDivName)
-    Q_PROPERTY(std::optional<int> divParentId READ getDivParentId WRITE setDivParentId)
-    Q_PROPERTY(std::optional<int> divCehId READ getDivCehId WRITE setDivCehId)
+    Q_PROPERTY(int divId READ getDivId WRITE setDivId)
+    Q_PROPERTY(QString divCode READ getDivCode WRITE setDivCode)
+    Q_PROPERTY(QString divName READ getDivName WRITE setDivName)
+    Q_PROPERTY(int divParentId READ getDivParentId WRITE setDivParentId)
+    Q_PROPERTY(int divCehId READ getDivCehId WRITE setDivCehId)
 
 public:
     Division();
@@ -31,27 +31,27 @@ public:
 
     }
 
-    std::optional<int> getDivId() const;
-    void setDivId(std::optional<int> newDivId);
+    int getDivId() const;
+    void setDivId(int newDivId);
 
-    std::optional<QString> getDivCode() const;
-    void setDivCode(std::optional<QString> newDivCode);
+    QString getDivCode() const;
+    void setDivCode(QString newDivCode);
 
-    std::optional<QString> getDivName() const;
-    void setDivName(std::optional<QString> newDivName);
+    QString getDivName() const;
+    void setDivName(QString newDivName);
 
-    std::optional<int> getDivParentId() const;
-    void setDivParentId(std::optional<int> newDivParentId);
+    int getDivParentId() const;
+    void setDivParentId(int newDivParentId);
 
-    std::optional<int> getDivCehId() const;
-    void setDivCehId(std::optional<int> newDivCehId);
+    int getDivCehId() const;
+    void setDivCehId(int newDivCehId);
 
 private:
-    std::optional<int> divId;
-    std::optional<QString> divCode;
-    std::optional<QString> divName;
-    std::optional<int> divParentId;
-    std::optional<int> divCehId;
+    int divId;
+    QString divCode;
+    QString divName;
+    int divParentId;
+    int divCehId;
 
 };
 

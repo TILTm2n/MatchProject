@@ -22,8 +22,6 @@ public:
 template<typename T>
     static void Deserealize(T* t, const QJsonObject& jv)
     {   
-        //T* t = new T();
-
         QStringList propNames = jv.keys();
 
         for(int i = t->metaObject()->propertyOffset(); i < t->metaObject()->propertyCount(); ++i)
@@ -42,7 +40,6 @@ template<typename T>
             }
         }
     }
-
 };
 
 

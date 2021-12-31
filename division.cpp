@@ -5,52 +5,52 @@ Division::Division()
 
 }
 
-std::optional<int> Division::getDivId() const
+int Division::getDivId() const
 {
     return divId;
 }
 
-void Division::setDivId(std::optional<int> newDivId)
+void Division::setDivId(int newDivId)
 {
     divId = newDivId;
 }
 
-std::optional<QString> Division::getDivCode() const
+QString Division::getDivCode() const
 {
     return divCode;
 }
 
-void Division::setDivCode(std::optional<QString> newDivCode)
+void Division::setDivCode(QString newDivCode)
 {
     divCode = newDivCode;
 }
 
-std::optional<QString> Division::getDivName() const
+QString Division::getDivName() const
 {
     return divName;
 }
 
-void Division::setDivName(std::optional<QString> newDivName)
+void Division::setDivName(QString newDivName)
 {
     divName = newDivName;
 }
 
-std::optional<int> Division::getDivParentId() const
+int Division::getDivParentId() const
 {
     return divParentId;
 }
 
-void Division::setDivParentId(std::optional<int> newDivParentId)
+void Division::setDivParentId(int newDivParentId)
 {
     divParentId = newDivParentId;
 }
 
-std::optional<int> Division::getDivCehId() const
+int Division::getDivCehId() const
 {
     return divCehId;
 }
 
-void Division::setDivCehId(std::optional<int> newDivCehId)
+void Division::setDivCehId(int newDivCehId)
 {
     divCehId = newDivCehId;
 }

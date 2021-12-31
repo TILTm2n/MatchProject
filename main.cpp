@@ -147,22 +147,21 @@ int main(int argc, char *argv[])
 
     cout << "userInput = " << netManager->userInput.toStdString() << endl << endl;
 
-    netManager->getWorkerManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Worker")));
-//    switch (numberOfObject)
-//    {
-//    case 1:
-//        netManager->getDivisionManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Division")));
-//        break;
-//    case 2:
-//        netManager->getRoomManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
-//        break;
-//    case 3:
-//        netManager->getWorkerManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Worker")));
-//        break;
-//    default:
-//        cout << "pososi" << endl;
-//        break;
-//    }
+    switch (numberOfObject)
+    {
+    case 1:
+        netManager->getDivisionManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Division")));
+        break;
+    case 2:
+        netManager->getRoomManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
+        break;
+    case 3:
+        netManager->getWorkerManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Worker")));
+        break;
+    default:
+        cout << "pososi" << endl;
+        break;
+    }
 
 
 

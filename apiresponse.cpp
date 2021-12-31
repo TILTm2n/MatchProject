@@ -51,7 +51,7 @@ void APIResponse::onWorkerResult(QNetworkReply *workerReply)
         auto new_worker = std::make_shared<Worker>();
         des.Deserealize(new_worker.get(), worker.toObject());
         if(match.Match(*new_worker, properties, userInput)){
-            std::cout << counter << " " << new_worker->getWorFamily().toStdString() << " " << new_worker->getWorName().toStdString() << " "  << new_worker->getWorSurname().toStdString() << std::endl;
+            std::cout << counter << " ----> " << new_worker->getWorFamily().toStdString() << " " << new_worker->getWorName().toStdString() << " "  << new_worker->getWorSurname().toStdString() << std::endl;
             ++counter;
         }
         //list.append(new_slot);
@@ -60,8 +60,22 @@ void APIResponse::onWorkerResult(QNetworkReply *workerReply)
 
 void APIResponse::onDivisionResult(QNetworkReply *divisionReply)
 {
+    MyCustomClass match;
+    Deserealizator des;
     QJsonDocument document = QJsonDocument::fromJson(divisionReply->readAll());
     QJsonArray divisions = document.array();
+
+    int counter = 1;
+    for(const auto& division: divisions)
+    {
+        auto new_division = std::make_shared<Division>();
+        des.Deserealize(new_division.get(), division.toObject());
+        if(match.Match(*new_division, properties, userInput)){
+            std::cout << counter << " ----> " << new_division->getDivName().toStdString() << std::endl;
+            ++counter;
+        }
+        //list.append(new_slot);
+    }
 }
 
 QNetworkAccessManager *APIResponse::getDivisionManager() const
