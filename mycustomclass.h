@@ -16,9 +16,6 @@ public:
     template <typename T>
     static bool Match (const T& object, const QList<QString>& propNames, QString input)
     {   
-//        if(object == nullptr) //проверка на нулевой указаетль
-//            return false;
-
         for(const QString& str: propNames)
         {
             const int index = object.metaObject()->indexOfProperty(str.toStdString().c_str());

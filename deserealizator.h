@@ -25,25 +25,25 @@ template<typename T>
         //T* t = new T();
 
         QStringList propNames = jv.keys();
-        for(auto key: propNames){
-            auto value = jv.value(key);
-            cout << key.toStdString() << "------> " << value.toString().toStdString() << endl;
+
+        for(int i = t->metaObject()->propertyOffset(); i < t->metaObject()->propertyCount(); ++i)
+        {
+            const auto nameProp = QString(t->metaObject()->property(i).name());
+            auto value = jv.value(nameProp);
+
+            if(propNames.contains(nameProp, Qt::CaseInsensitive)){
+                auto value = jv.value(nameProp);
+
+                if(value.isDouble()){
+                    t->metaObject()->property(i).write(t, value.toInt());
+                }else{
+                    t->metaObject()->property(i).write(t, value.toString());
+                }
+            }
         }
-
-
-//        for(int i = t->metaObject()->propertyOffset(); i < t->metaObject()->propertyCount(); ++i)
-//        {
-//            const auto nameProp = QString(t->metaObject()->property(i).name());
-
-//            if(propNames.contains(nameProp, Qt::CaseInsensitive)){
-//                auto value = jv.value(nameProp);
-//                cout << "fhgvhvhh" << value.toString().toStdString() << endl;
-//                t->metaObject()->property(i).write(t, value);
-//            }
-//        }
-
-        cout << "отработал десериализатор" << endl;
     }
+
 };
+
 
 #endif // DESEREALIZATOR_H

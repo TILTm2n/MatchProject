@@ -10,14 +10,14 @@ class Worker: public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(std::optional<int> worId READ getWorId WRITE setWorId)
-    Q_PROPERTY(std::optional<int> tubNum READ getTubNum WRITE setTubNum)
-    Q_PROPERTY(std::optional<QString> worFamily READ getWorFamily WRITE setWorFamily)
-    Q_PROPERTY(std::optional<QString> worName READ getWorName WRITE setWorName)
-    Q_PROPERTY(std::optional<QString> worSurname READ getWorSurname WRITE setWorSurname)
-    Q_PROPERTY(std::optional<int> divId READ getDivId WRITE setDivId)
-    Q_PROPERTY(std::optional<QString> divCode READ getDivCode WRITE setDivCode)
-    Q_PROPERTY(std::optional<QString> worFio READ getWorFio WRITE setWorFio)
+    Q_PROPERTY(int worId READ getWorId WRITE setWorId)
+    Q_PROPERTY(int tubNum READ getTubNum WRITE setTubNum)
+    Q_PROPERTY(QString worFamily READ getWorFamily WRITE setWorFamily)
+    Q_PROPERTY(QString worName READ getWorName WRITE setWorName)
+    Q_PROPERTY(QString worSurname READ getWorSurname WRITE setWorSurname)
+    Q_PROPERTY(int divId READ getDivId WRITE setDivId)
+    Q_PROPERTY(QString divCode READ getDivCode WRITE setDivCode)
+    Q_PROPERTY(QString worFio READ getWorFio WRITE setWorFio)
 
 
 public:
@@ -42,39 +42,39 @@ public:
 
     }
 
-    std::optional<int> getWorId() const;
-    void setWorId(std::optional<int> newWorId);
+    int getWorId() const;
+    void setWorId(int newWorId);
 
-    std::optional<int> getTubNum() const;
-    void setTubNum(std::optional<int> newTubNum);
+    int getTubNum() const;
+    void setTubNum(int newTubNum);
 
-    std::optional<QString> getWorFamily() const;
-    void setWorFamily(std::optional<QString> newWorFamily);
+    QString getWorFamily() const;
+    void setWorFamily(QString newWorFamily);
 
-    std::optional<QString> getWorName() const;
-    void setWorName(std::optional<QString> newWorName);
+    QString getWorName() const;
+    void setWorName(QString newWorName);
 
-    std::optional<QString> getWorSurname() const;
-    void setWorSurname(std::optional<QString> newWorSurname);
+    QString getWorSurname() const;
+    void setWorSurname(QString newWorSurname);
 
-    std::optional<int> getDivId() const;
-    void setDivId(std::optional<int> newDivId);
+    int getDivId() const;
+    void setDivId(int newDivId);
 
-    std::optional<QString> getDivCode() const;
-    void setDivCode(std::optional<QString> newDivCode);
+    QString getDivCode() const;
+    void setDivCode(QString newDivCode);
 
-    std::optional<QString> getWorFio() const;
-    void setWorFio(std::optional<QString> newWorFio);
+    QString getWorFio() const;
+    void setWorFio(QString newWorFio);
 
 private:
-    std::optional<int> worId;
-    std::optional<int> tubNum;
-    std::optional<QString> worFamily;
-    std::optional<QString> worName;
-    std::optional<QString> worSurname;
-    std::optional<int> divId;
-    std::optional<QString> divCode;
-    std::optional<QString> worFio;
+    int worId;
+    int tubNum;
+    QString worFamily;
+    QString worName;
+    QString worSurname;
+    int divId;
+    QString divCode;
+    QString worFio;
 };
 
 #endif // WORKER_H

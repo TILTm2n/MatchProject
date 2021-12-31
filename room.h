@@ -11,11 +11,11 @@ class Room : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(std::optional<int> wrpId READ getWrpId WRITE setWrpId)
-    Q_PROPERTY(std::optional<int> wrpParentId READ getWrpParentId WRITE setWrpParentId)
-    Q_PROPERTY(std::optional<QString> wrpCode READ getWrpCode WRITE setWrpCode)
-    Q_PROPERTY(std::optional<QString> wrpName READ getWrpName WRITE setWrpName)
-    Q_PROPERTY(std::optional<int> worSurcontrolAreaIdname READ getControlAreaId WRITE setControlAreaId)
+    Q_PROPERTY(int wrpId READ getWrpId WRITE setWrpId)
+    Q_PROPERTY(int wrpParentId READ getWrpParentId WRITE setWrpParentId)
+    Q_PROPERTY(QString wrpCode READ getWrpCode WRITE setWrpCode)
+    Q_PROPERTY(QString wrpName READ getWrpName WRITE setWrpName)
+    Q_PROPERTY(int worSurcontrolAreaIdname READ getControlAreaId WRITE setControlAreaId)
 
 public:
     Room();
@@ -34,27 +34,27 @@ public:
 
     }
 
-    std::optional<int> getWrpId() const;
-    void setWrpId(std::optional<int> newWrpId);
+    int getWrpId() const;
+    void setWrpId(int newWrpId);
 
-    std::optional<int> getWrpParentId() const;
-    void setWrpParentId(std::optional<int> newWrpParentId);
+    int getWrpParentId() const;
+    void setWrpParentId(int newWrpParentId);
 
-    std::optional<QString> getWrpCode() const;
-    void setWrpCode(std::optional<QString> newWrpCode);
+    QString getWrpCode() const;
+    void setWrpCode(QString newWrpCode);
 
-    std::optional<QString> getWrpName() const;
-    void setWrpName(std::optional<QString> newWrpName);
+    QString getWrpName() const;
+    void setWrpName(QString newWrpName);
 
-    std::optional<int> getControlAreaId() const;
-    void setControlAreaId(std::optional<int> newControlAreaId);
+    int getControlAreaId() const;
+    void setControlAreaId(int newControlAreaId);
 
 private:
-    std::optional<int> wrpId;
-    std::optional<int> wrpParentId;
-    std::optional<QString> wrpCode;
-    std::optional<QString> wrpName;
-    std::optional<int> controlAreaId;
+    int wrpId;
+    int wrpParentId;
+    QString wrpCode;
+    QString wrpName;
+    int controlAreaId;
 
 };
 

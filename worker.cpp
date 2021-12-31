@@ -5,82 +5,82 @@ Worker::Worker()
 
 }
 
-std::optional<int> Worker::getWorId() const
+int Worker::getWorId() const
 {
     return worId;
 }
 
-void Worker::setWorId(std::optional<int> newWorId)
+void Worker::setWorId(int newWorId)
 {
     worId = newWorId;
 }
 
-std::optional<int> Worker::getTubNum() const
+int Worker::getTubNum() const
 {
     return tubNum;
 }
 
-void Worker::setTubNum(std::optional<int> newTubNum)
+void Worker::setTubNum(int newTubNum)
 {
     tubNum = newTubNum;
 }
 
-std::optional<QString> Worker::getWorFamily() const
+QString Worker::getWorFamily() const
 {
     return worFamily;
 }
 
-void Worker::setWorFamily(std::optional<QString> newWorFamily)
+void Worker::setWorFamily(QString newWorFamily)
 {
     worFamily = newWorFamily;
 }
 
-std::optional<QString> Worker::getWorName() const
+QString Worker::getWorName() const
 {
     return worName;
 }
 
-void Worker::setWorName(std::optional<QString> newWorName)
+void Worker::setWorName(QString newWorName)
 {
     worName = newWorName;
 }
 
-std::optional<QString> Worker::getWorSurname() const
+QString Worker::getWorSurname() const
 {
     return worSurname;
 }
 
-void Worker::setWorSurname(std::optional<QString> newWorSurname)
+void Worker::setWorSurname(QString newWorSurname)
 {
     worSurname = newWorSurname;
 }
 
-std::optional<int> Worker::getDivId() const
+int Worker::getDivId() const
 {
     return divId;
 }
 
-void Worker::setDivId(std::optional<int> newDivId)
+void Worker::setDivId(int newDivId)
 {
     divId = newDivId;
 }
 
-std::optional<QString> Worker::getDivCode() const
+QString Worker::getDivCode() const
 {
     return divCode;
 }
 
-void Worker::setDivCode(std::optional<QString> newDivCode)
+void Worker::setDivCode(QString newDivCode)
 {
     divCode = newDivCode;
 }
 
-std::optional<QString> Worker::getWorFio() const
+QString Worker::getWorFio() const
 {
     return worFio;
 }
 
-void Worker::setWorFio(std::optional<QString> newWorFio)
+void Worker::setWorFio(QString newWorFio)
 {
     worFio = newWorFio;
 }
