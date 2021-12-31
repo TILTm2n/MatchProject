@@ -5,7 +5,7 @@
 #include "room.h"
 
 using std::cout;
-using std::in;
+using std::cin;
 using std::endl;
 
 APIResponse::APIResponse()
@@ -44,7 +44,7 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
 
     }
     if(falseCounter == rooms.count()){
-
+        cout << "таких комнат нет" << endl;
     }
 }
 
@@ -55,6 +55,7 @@ void APIResponse::onWorkerResult(QNetworkReply *workerReply)
     QJsonDocument document = QJsonDocument::fromJson(workerReply->readAll());
     QJsonArray workers = document.array();
 
+    int falseCounter = 0;
     int counter = 1;
     for(const auto& worker: workers)
     {
@@ -63,8 +64,14 @@ void APIResponse::onWorkerResult(QNetworkReply *workerReply)
         if(match.Match(*new_worker, properties, userInput)){
             std::cout << counter << " ----> " << new_worker->getWorFamily().toStdString() << " " << new_worker->getWorName().toStdString() << " "  << new_worker->getWorSurname().toStdString() << std::endl;
             ++counter;
+        }else{
+            ++falseCounter;
         }
         //list.append(new_slot);
+    }
+
+    if(falseCounter == workers.count()){
+        cout << "таких работников нет" << endl;
     }
 }
 
@@ -75,6 +82,7 @@ void APIResponse::onDivisionResult(QNetworkReply *divisionReply)
     QJsonDocument document = QJsonDocument::fromJson(divisionReply->readAll());
     QJsonArray divisions = document.array();
 
+    int falseCounter = 0;
     int counter = 1;
     for(const auto& division: divisions)
     {
@@ -83,8 +91,13 @@ void APIResponse::onDivisionResult(QNetworkReply *divisionReply)
         if(match.Match(*new_division, properties, userInput)){
             std::cout << counter << " ----> " << new_division->getDivName().toStdString() << std::endl;
             ++counter;
+        }else{
+            ++falseCounter;
         }
         //list.append(new_slot);
+    }
+    if(falseCounter == divisions.count()){
+        cout << "таких подразделений нет" << endl;
     }
 }
 

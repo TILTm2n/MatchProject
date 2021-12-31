@@ -163,39 +163,6 @@ int main(int argc, char *argv[])
         break;
     }
 
-
-
-    cout << "ne rabotaet" << endl;
-
-
-//    while(!reply->isFinished()){
-//        std::this_thread::sleep_for(1s);
-//    }
-
-
-//    switch (numberOfObject)
-//    {
-//    case 1:
-//        netManager->getRoomManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
-//        break;
-//    case 2:
-//        netManager->getWorkerManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Worker")));
-//        break;
-//    case 3:
-//        netManager->getDivisionManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Division")));
-//        break;
-//    default:
-//        cout << "pososi еще раз" << endl;
-//        break;
-//    }
-
-
-
-
-
-
-
-
     delete wrk;
     delete rm;
     delete  dvsn;
