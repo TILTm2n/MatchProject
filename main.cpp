@@ -90,16 +90,26 @@ int main(int argc, char *argv[])
     Worker *wrk = new Worker();
     Room *rm = new Room();
     Division *dvsn = new Division();
-
     APIResponse* netManager = new APIResponse();
 
     int numberOfObject;
     string nameOfObject;
-
-    //string listOfChoosenNumbers;
-    //QString stringOfInts = QString(listOfChoosenNumbers.c_str());
-
     QList<QString> searchProperties;
+
+//    bool again = true;
+//    while (again) {
+//        int answer;
+//        cout << std::string(35, '_') << endl << endl;
+//        cout << "Хотите найти еще что-нибудь?" << endl << endl;
+//        cout << "1. Да" << endl;
+//        cout << "2. Нет" << endl;
+//        cin >> answer;
+//        if(answer == 1){
+//            again = true;
+//        }else if(answer == 2){
+//             again = false;
+//        }
+//    }
 
     cout << std::string(35, '_') << endl << endl;
     cout << "Console Nuclear Power Plant App" << endl;
@@ -162,6 +172,8 @@ int main(int argc, char *argv[])
         cout << "pososi" << endl;
         break;
     }
+
+    cout << "1. Division" << endl;
 
     delete wrk;
     delete rm;
