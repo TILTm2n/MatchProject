@@ -174,6 +174,7 @@ int main(int argc, char *argv[])
     }
 
     cout << "1. Division" << endl;
+    cout << "2. Room" << endl;
 
     delete wrk;
     delete rm;
