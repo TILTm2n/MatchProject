@@ -96,24 +96,29 @@ int main(int argc, char *argv[])
     string nameOfObject;
     QList<QString> searchProperties;
 
-//    bool again = true;
-//    while (again) {
-//        int answer;
-//        cout << std::string(35, '_') << endl << endl;
-//        cout << "Хотите найти еще что-нибудь?" << endl << endl;
-//        cout << "1. Да" << endl;
-//        cout << "2. Нет" << endl;
-//        cin >> answer;
-//        if(answer == 1){
-//            again = true;
-//        }else if(answer == 2){
-//             again = false;
-//        }
-//    }
+    bool again = true;
+    while (again) {
 
-    cout << std::string(35, '_') << endl << endl;
-    cout << "Console Nuclear Power Plant App" << endl;
-    cout << std::string(35, '_') << endl << endl;
+        cout << std::string(35, '_') << endl << endl;
+        cout << "Console Nuclear Power Plant App" << endl;
+        cout << std::string(35, '_') << endl << endl;
+
+        //////////////////////////////////////////////////////////////////////////////////////
+
+        /////////////////////////////////////////////////////////////////////////////////////
+
+        int answer;
+        cout << std::string(35, '_') << endl << endl;
+        cout << "Хотите найти еще что-нибудь?" << endl << endl;
+        cout << "1. Да" << endl;
+        cout << "2. Нет" << endl;
+        cin >> answer;
+        if(answer == 1){
+            again = true;
+        }else if(answer == 2){
+             again = false;
+        }
+    }
 
     cout << "Select your entity:" << endl;
     cout << "1. Division" << endl;
@@ -173,9 +178,7 @@ int main(int argc, char *argv[])
         break;
     }
 
-    cout << "1. Division" << endl;
-    cout << "2. Room" << endl;
-    cout << "3. Worker" << endl;
+
 
     delete wrk;
     delete rm;

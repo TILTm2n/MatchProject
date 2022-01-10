@@ -26,7 +26,6 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
     QJsonDocument document = QJsonDocument::fromJson(roomReply->readAll());
     QJsonArray rooms = document.array();
 
-    //QList<std::shared_ptr<Room>> list;
     int falseCounter = 0;
     int counter = 1;
     for(const auto& room: rooms)
@@ -67,7 +66,6 @@ void APIResponse::onWorkerResult(QNetworkReply *workerReply)
         }else{
             ++falseCounter;
         }
-        //list.append(new_slot);
     }
 
     if(falseCounter == workers.count()){
