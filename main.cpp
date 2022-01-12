@@ -5,6 +5,7 @@
 #include <memory>
 #include <QList>
 #include <QUrl>
+#include <QTimer>
 
 #include "mycustomclass.h"
 #include "apiresponse.h"
@@ -87,10 +88,11 @@ int main(int argc, char *argv[])
 
     QCoreApplication a(argc, argv);
 
-    Worker *wrk = new Worker();
-    Room *rm = new Room();
-    Division *dvsn = new Division();
-    APIResponse* netManager = new APIResponse();
+    auto wrk = std::make_unique<Worker>();
+    auto rm = std::make_unique<Room>();
+    auto dvsn = std::make_unique<Division>();
+    auto netManager = std::make_unique<APIResponse>();
+    QTimer *tmr = new QTimer();
 
     int numberOfObject;
     string nameOfObject;
@@ -103,9 +105,63 @@ int main(int argc, char *argv[])
         cout << "Console Nuclear Power Plant App" << endl;
         cout << std::string(35, '_') << endl << endl;
 
-        //////////////////////////////////////////////////////////////////////////////////////
+        cout << "Select your entity:" << endl;
+        cout << "1. Division" << endl;
+        cout << "2. Room" << endl;
+        cout << "3. Worker" << endl;
+        cout << std::string(35, '_') << endl << endl;
 
-        /////////////////////////////////////////////////////////////////////////////////////
+        cout << "Input -> ";
+        cin >> numberOfObject;
+        switch (numberOfObject)
+        {
+        case 1:
+            printChoseMessage(dvsn, searchProperties);
+            break;
+        case 2:
+            printChoseMessage(rm, searchProperties);
+            break;
+        case 3:
+            printChoseMessage(wrk, searchProperties);
+            break;
+        default:
+            cout << "pososi" << endl;
+            break;
+        }
+        cout << std::string(35, '_') << endl << endl;
+
+        netManager->properties = searchProperties;
+
+        string input;
+
+        cout << "Please, input string -> " << endl << endl;
+
+        cin >> input;
+        QString userInput = QString(input.c_str());
+
+        cout << std::string(35, '_') << endl << endl;
+
+        netManager->userInput = userInput;
+
+        cout << "userInput = " << netManager->userInput.toStdString() << endl << endl;
+
+        switch (numberOfObject)
+        {
+        case 1:
+            netManager->getDivisionManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Division")));
+            break;
+        case 2:
+            netManager->getRoomManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
+            break;
+        case 3:
+            netManager->getWorkerManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Worker")));
+            break;
+        default:
+            cout << "конец" << endl;
+            break;
+        }
+        tmr->setInterval(5000);
+        cout << "конец запроса" << endl;
 
         int answer;
         cout << std::string(35, '_') << endl << endl;
@@ -120,69 +176,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    cout << "Select your entity:" << endl;
-    cout << "1. Division" << endl;
-    cout << "2. Room" << endl;
-    cout << "3. Worker" << endl;
-    cout << std::string(35, '_') << endl << endl;
 
-    cout << "Input -> ";
-    cin >> numberOfObject;
-    switch (numberOfObject)
-    {
-    case 1:
-        printChoseMessage(dvsn, searchProperties);
-        break;
-    case 2:
-        printChoseMessage(rm, searchProperties);
-        break;
-    case 3:
-        printChoseMessage(wrk, searchProperties);
-        break;
-    default:
-        cout << "pososi" << endl;
-        break;
-    }
-    cout << std::string(35, '_') << endl << endl;
-
-    netManager->properties = searchProperties;
-
-    string input;
-
-    cout << "Please, input string -> " << endl << endl;
-
-    cin >> input;
-    QString userInput = QString(input.c_str());
-
-    cout << std::string(35, '_') << endl << endl;
-
-    cout << "poka rabotaet" << endl << endl;
-
-    netManager->userInput = userInput;
-
-    cout << "userInput = " << netManager->userInput.toStdString() << endl << endl;
-
-    switch (numberOfObject)
-    {
-    case 1:
-        netManager->getDivisionManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Division")));
-        break;
-    case 2:
-        netManager->getRoomManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Room")));
-        break;
-    case 3:
-        netManager->getWorkerManager()->get(QNetworkRequest(QUrl("http://localhost:5001/api/Worker")));
-        break;
-    default:
-        cout << "pososi" << endl;
-        break;
-    }
-
-
-
-    delete wrk;
-    delete rm;
-    delete  dvsn;
 
     return a.exec();
 }

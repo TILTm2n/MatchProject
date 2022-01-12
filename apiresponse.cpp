@@ -39,7 +39,6 @@ void APIResponse::onRoomResult(QNetworkReply *roomReply)
         }else{
             ++falseCounter;
         }
-        //list.append(new_slot);
 
     }
     if(falseCounter == rooms.count()){
@@ -67,7 +66,6 @@ void APIResponse::onWorkerResult(QNetworkReply *workerReply)
             ++falseCounter;
         }
     }
-
     if(falseCounter == workers.count()){
         cout << "таких работников нет" << endl;
     }
@@ -92,11 +90,12 @@ void APIResponse::onDivisionResult(QNetworkReply *divisionReply)
         }else{
             ++falseCounter;
         }
-        //list.append(new_slot);
     }
+
     if(falseCounter == divisions.count()){
         cout << "таких подразделений нет" << endl;
     }
+
 }
 
 QNetworkAccessManager *APIResponse::getDivisionManager() const
